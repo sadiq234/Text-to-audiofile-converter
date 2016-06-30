@@ -1,11 +1,10 @@
-
-
+from comtypes.gen import SpeechLib
 from comtypes.client import CreateObject
-from comtypes.gen import SpeechLib    
 engine = CreateObject("SAPI.SpVoice")
 stream = CreateObject("SAPI.SpFileStream")
-infile = raw_input()
-outfile = raw_input()
+
+infile = input()
+outfile = input()
 stream.Open(outfile, SpeechLib.SSFMCreateForWrite)
 engine.AudioOutputStream = stream
 f = open(infile, 'r')
