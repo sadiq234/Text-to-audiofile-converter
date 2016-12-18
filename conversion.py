@@ -3,7 +3,7 @@ from comtypes.client import CreateObject
 engine = CreateObject("SAPI.SpVoice")
 stream = CreateObject("SAPI.SpFileStream")
 
-infile = input()
+infile = input("type the name of the file you want to convert:")
 outfile = input()
 stream.Open(outfile, SpeechLib.SSFMCreateForWrite)
 engine.AudioOutputStream = stream
