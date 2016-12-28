@@ -4,7 +4,7 @@ engine = CreateObject("SAPI.SpVoice")
 stream = CreateObject("SAPI.SpFileStream")
 
 infile = input("type the name of the file you want to convert:")
-outfile = input()
+outfile = input("type the name of the output the file")
 stream.Open(outfile, SpeechLib.SSFMCreateForWrite)
 engine.AudioOutputStream = stream
 f = open(infile, 'r')
