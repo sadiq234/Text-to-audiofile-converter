@@ -19,11 +19,11 @@ class MainApplication(tk.Frame):
         menu.add_command(label="exit", command=root.quit)   
         root.configure(background="green")
         menu.configure(background="white")
-        self.Linput = ttk.Label(root, text="enter a conversion source", width=30)
+        self.Linput = ttk.Label(root, text="input", width=20)
         self.Linput.pack()
         self.inputentry = ttk.Entry(root, width=20)
         self.inputentry.pack()
-        self.Loutput = ttk.Label(text="enter a conversion destination", width=20)
+        self.Loutput = ttk.Label(text="output", width=20)
         self.Loutput.grid_rowconfigure(4, weight=2)
         self.Loutput.pack()
         self.OutputEntry = ttk.Entry(width=20)
@@ -43,10 +43,10 @@ class MainApplication(tk.Frame):
                 self.content = text.read()
                 self.engine.speak(self.content)
                 self.stream.Close()
-                mbx.showinfo(f" conversion of {self.infile} {self.outfile} (self.infile, self.outfile")
+                mbx.showinfo("", f" conversion of {self.infile} {self.outfile} (self.infile, self.outfile)")
 
-        except Exception as e:
-            mbx.showwarning("error", e)
+        except:
+            mbx.showwarning("error", "the file you destination is already converted")
           
 
 root =  tk.Tk()
