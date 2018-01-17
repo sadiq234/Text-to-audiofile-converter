@@ -30,7 +30,7 @@ class MainApplication(tk.Frame):
         self.OutputEntry.pack()
         self.Convert = ttk.Button(text="convert", command=self.ConvertertoAudio)
         self.Convert.pack(side="top")
-
+"""sets up main function"""
     def ConvertertoAudio(self):
         try: 
             self.engine = CreateObject("SAPI.SpVoice")
