@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from comtypes.client import CreateObject
+from comtypes.gen import SpeechLib
 import logging
 from tkinter import messagebox as mbx
 """sets up initial conversion"""
@@ -29,8 +30,7 @@ class MainApplication(tk.Frame):
         self.Loutput.pack()
         self.OutputEntry = ttk.Entry(width=20)
         self.OutputEntry.pack()
-        self.Convert = ttk.Button(
-        text="convert", command=self.ConverterToAudio)
+        self.Convert = ttk.Button(text="convert", command=self.ConverterToAudio)
         self.Convert.pack(side="top")
 
 
@@ -47,20 +47,12 @@ class MainApplication(tk.Frame):
                 self.content = text.read()
                 self.engine.speak(self.content)
                 self.stream.Close()
-                mbx.showinfo("", f" conversion of {self.infile} {self.outfile} (self.infile, self.outfile)")
+                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
 
-        except:
-            mbx.showwarning("error", "the file you destination is already converted")
-          
+        except Exception as e:
+            mbx.showwarning(e, "the file you destination is already converted")
+            
 
 root =  tk.Tk()
 app = MainApplication()
 root.mainloop()
-
-
-
-
-
-
-
-
