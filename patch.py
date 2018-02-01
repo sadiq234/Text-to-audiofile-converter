@@ -16,12 +16,12 @@ class MainApplication(tk.Frame):
         menu = tk.Menu()
         root.grid_rowconfigure(2, weight=2)
         style = ttk.Style()
-        style.configure("TLabel", foreground="black", background="lightgreen")
-        style.configure("TButton", foreground="green", background="lightgreen")
+        style.configure("TLabel", relief="raised", foreground="black", background="lightgreen")
+        style.configure("TButton", foreground="grey", background="lightgreen", width=30)
         root.config(menu=menu)
         root.resizable(0, 0)
         root.title("my converter")
-        root.geometry("500x300")
+        root.geometry("500x200")
         menu.add_command(label="exit", command=root.quit)
         menu.add_command(label="help", command=self.showhelp)
         menu.add_command(label="about", command=self.about)
@@ -59,11 +59,9 @@ class MainApplication(tk.Frame):
             mbx.showwarning("error", e)
       
     def showhelp(self):
-        mbx.showinfo("help", "to use this application make sure you type in the file or directory you need converted in the input and output entries for example text.txt and then in the output entry do text.mp3")
+        mbx.showinfo("help", "to use this application make sure you type in the file or directory you need converted in the input and output entries for example text.txt and then in the output entry do text.mp3 you can also tab to the tnext entry")
     def about(self):
         mbx.showinfo("about", "\n\n created by austin heisley-cook\ndate 2/1/2018")
 root =  tk.Tk()
 app = MainApplication()
 root.mainloop()
-
-
