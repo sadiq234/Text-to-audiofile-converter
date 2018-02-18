@@ -1,13 +1,13 @@
+
 import tkinter as tk
 #if your using python 2.xx
 # import Tkinter as tk
 from tkinter import ttk
-#from comtypes.client import CreateObject
-#from comtypes.gen import SpeechLib
+from comtypes.client import CreateObject
+from comtypes.gen import SpeechLib
 import logging
 from tkinter import messagebox as mbx
 """sets up initial conversion"""
-
 
 class MainApplication(tk.Frame):
     def __init__(self, *args, **kwargs):
@@ -53,8 +53,7 @@ class MainApplication(tk.Frame):
                 self.content = text.read()
                 self.engine.speak(self.content)
                 self.stream.Close()
-                #mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
-                mbx.showinfo("output", "conversion of {} to {}".format(self.infile, self.outifle))
+                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
         except Exception as e:
             mbx.showwarning("error", e)
       
