@@ -56,7 +56,7 @@ class MainApplication(tk.Frame):
                 mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
         except Exception as e:
             mbx.showwarning("error", e)
-      
+  """menu functions""" 
     def showhelp(self):
         mbx.showinfo("help", "to use this application make sure you type in the file or directory you need converted in the input and output entries for example text.txt and then in the output entry do text.mp3 you can also tab to the tnext entry")
     def about(self):
