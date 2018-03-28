@@ -1,5 +1,5 @@
 
-import tkinter as tk
+iimport tkinter as tk
 #if your using python 2.xx
 # import Tkinter as tk
 from tkinter import ttk
@@ -10,6 +10,9 @@ from tkinter import messagebox as mbx
 """sets up initial conversion"""
 
 class MainApplication(tk.Frame):
+  """to use this application make sure you type in the file or directory you need
+    converted in the input and output entries for example text.txt and then in the
+    output entry do text.mp3 you can also tab to the tnext entry"""
     def __init__(self, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
         """application configuration"""
@@ -23,7 +26,7 @@ class MainApplication(tk.Frame):
         root.title("my converter")
         root.geometry("500x200")
         menu.add_command(label="exit", command=root.quit)
-        menu.add_command(label="help", command=self.showhelp)
+        menu.add_command(label="help", command=self.help()
         menu.add_command(label="about", command=self.about)
         root.configure(background="lightgreen")
         menu.configure(background="white")
@@ -57,9 +60,7 @@ class MainApplication(tk.Frame):
         except Exception as e:
             mbx.showwarning("error", e)
   """menu functions""" 
-    def showhelp(self):
-        mbx.showinfo("help", "to use this application make sure you type in the file or directory you need converted in the input and output entries for example text.txt and then in the output entry do text.mp3 you can also tab to the tnext entry")
-    def about(self):
+     def about(self):
         mbx.showinfo("about", "\n\n created by austin heisley-cook\ndate 2/1/2018")
 root =  tk.Tk()
 app = MainApplication()
