@@ -8,5 +8,5 @@ make sure to import comtypes before downloading this script
 -tested text foramt txt. testing will continues
 #new updates
 aded voice rate settings
-Successful tests
-[https://drive.google.com/folderview?id=1hA0vHn6a3rgQ6flJrye63CNY1xHfB6U2](conversions)
+Successful tests inlink down below
+https://drive.google.com/folderview?id=1hA0vHn6a3rgQ6flJrye63CNY1xHfB6U2](conversion test)
