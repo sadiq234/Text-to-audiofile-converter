@@ -27,7 +27,7 @@ class MainApplication(tk.Frame):
         menu.add_command(label="About", command=self.about)
         root.configure(background="lightgreen")
         menu.configure(background="white")
-        self.basic = ttk.Label(text="Please click the help menubutton first you use  the application \n" )
+        self.basic = ttk.Label(text="Please click the help button on the menu to learn how  to use  the application. \n" )
         self.basic.pack()
         self.Linput = ttk.Label(root, text="Input file   ", width=30)
         self.Linput.pack()
@@ -66,9 +66,9 @@ class MainApplication(tk.Frame):
             mbx.showwarning("error", e)
       
     def showhelp(self):
-        mbx.showinfo("Help", "to use this application make sure you type in the file or directory you need converted in the input and output\n entries for example text.txt and\n then in the output entry do text.mp3 you can also tab to the next entry\nthe new feature you can is set the rate of the scale from -10 to 10 in the rate entry box but there must be a number, i will add voices as I go.")
+        mbx.showinfo("Help", "To use this application make sure you type in the file or directory you need converted in the input entry and output\n entru for example text.txt and\n then in the output entry do text.mp3 you can also tab to the next entry\nthe new feature you can is set the rate of the scale from -10 to 10 in the rate entry box but there must be a number, i will add voices as I go.")
     def about(self):
-        mbx.showinfo("About", "\n\n created by austin heisley-cook\ndate 2/1/2018 original year is 2013 this program the idea is credited to joesph polizzotto because i am making the idea becomes a reality.")
+        mbx.showinfo("About", "\n\n created by austin heisley-cook\ndate 2/1/2018 original year is 2013 this program the idea is credited to joesph polizzotto because I am making the idea becomes a reality.")
 
 root =  tk.Tk()
 app = MainApplication()
