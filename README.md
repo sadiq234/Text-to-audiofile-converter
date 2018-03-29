@@ -9,4 +9,4 @@ make sure to import comtypes before downloading this script
 #new updates
 aded voice rate settings
 Successful tests inlink down below
-https://drive.google.com/folderview?id=1hA0vHn6a3rgQ6flJrye63CNY1xHfB6U2](conversion test)
+[https://drive.google.com/drive/folders/1hA0vHn6a3rgQ6flJrye63CNY1xHfB6U2](conversion test)
