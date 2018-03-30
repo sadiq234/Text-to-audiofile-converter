@@ -45,6 +45,7 @@ class MainApplication(tk.Frame):
         self.Convert = ttk.Button(text="Convert Text", command=self.ConverterToAudio)
         self.Convert.pack(side="top")
         """sets up main function"""
+        
     def ConverterToAudio(self):
         try: 
             self.engine = CreateObject("SAPI.SpVoice")
@@ -60,13 +61,13 @@ class MainApplication(tk.Frame):
                 self.engine.GetVoices("microsoft zira")
                 self.engine.speak(self.content)
                 self.stream.Close()
-                #mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
-                mbx.showinfo("Output", "Conversion of {} to {}".format(self.infile, self.outfile))
+                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}"
         except Exception as e:
             mbx.showwarning("error", e)
       
     def showhelp(self):
         mbx.showinfo("Help", "To use this application make sure you type in the file or directory you need converted in the input entry and output\n entru for example text.txt and\n then in the output entry do text.mp3 you can also tab to the next entry\nthe new feature you can is set the rate of the scale from -10 to 10 in the rate entry box but there must be a number, i will add voices as I go.")
+                             
     def about(self):
         mbx.showinfo("About", "\n\n created by austin heisley-cook\ndate 2/1/2018 original year is 2013 this program the idea is credited to joesph polizzotto because I am making the idea becomes a reality.")
 
