@@ -61,7 +61,7 @@ class MainApplication(tk.Frame):
                 self.engine.GetVoices("microsoft zira")
                 self.engine.speak(self.content)
                 self.stream.Close()
-                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}"
+                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
         except Exception as e:
             mbx.showwarning("error", e)
       
