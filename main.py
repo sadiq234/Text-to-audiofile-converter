@@ -7,17 +7,18 @@ from comtypes.gen import SpeechLib
 import logging
 from tkinter import messagebox as mbx
 """sets up initial conversion"""
-
+import os
 
 class MainApplication(tk.Frame):
     def __init__(self, *args, **kwargs):
         tk.Frame.__init__(self, *args, **kwargs)
         """application configuration"""
         menu = tk.Menu()
+        Font = "helevetica 10" 
         root.grid_rowconfigure(2, weight=2)
         style = ttk.Style()
         style.configure("TLabel", relief="flat", foreground="black", background="lightgreen")
-        style.configure("TButton", relief="grooved", foreground="grey", background="lightgreen", width=30)
+        style.configure("TButton", relief="grooved", foreground="#800", background="lightgreen", width=30)
         root.config(menu=menu)
         root.resizable(0, 0)
         root.title("Text To Audio Converter")
@@ -27,9 +28,9 @@ class MainApplication(tk.Frame):
         menu.add_command(label="About", command=self.about)
         root.configure(background="lightgreen")
         menu.configure(background="white")
-        self.basic = ttk.Label(text="Please click the help button on the menu to learn how  to use  the application. \n" )
+        self.basic = ttk.Label(text="Please click the help button on the menu to learn how to use program \n", font=Font)
         self.basic.pack()
-        self.Linput = ttk.Label(root, text="Input file   ", width=30)
+        self.Linput = ttk.Label(root, text="Input file", width=30) 
         self.Linput.pack()
         self.inputentry = ttk.Entry(root, width=30)
         self.inputentry.pack()
@@ -44,8 +45,7 @@ class MainApplication(tk.Frame):
         self.Setrate.pack()
         self.Convert = ttk.Button(text="Convert Text", command=self.ConverterToAudio)
         self.Convert.pack(side="top")
-        """sets up main function"""
-        
+        """sets up main root nction"""
     def ConverterToAudio(self):
         try: 
             self.engine = CreateObject("SAPI.SpVoice")
@@ -61,15 +61,21 @@ class MainApplication(tk.Frame):
                 self.engine.GetVoices("microsoft zira")
                 self.engine.speak(self.content)
                 self.stream.Close()
-                mbx.showinfo("output", f" conversion of {self.infile} {self.outfile}")
+                mbx.showinfo("output", f" conversion of  source file {self.infile} to  destination{self.outfile}")
+                with open("converter-conversions-log.txt","a") as C:
+                    C.write(f"output: conversion of {self.infile} {self.outfile} completed")
+
+                #mbx.showinfo("Output", "Conversion of {} to {}".format(self.infile, self.outfile))#
         except Exception as e:
             mbx.showwarning("error", e)
+            with open("converter-error-log.txt", "a") as E:
+                E.write(f"\n error: {e}")
+
       
-    def showhelp(self):
-        mbx.showinfo("Help", "To use this application make sure you type in the file or directory you need converted in the input entry and output\n entru for example text.txt and\n then in the output entry do text.mp3 you can also tab to the next entry\nthe new feature you can is set the rate of the scale from -10 to 10 in the rate entry box but there must be a number, i will add voices as I go.")
-                             
+    def showhelp(self):mbx.showinfo("Help", "To use this application make sure you type in the file or directory you need converted in the input entry and output\n entru for example text.txt and\n then in the output entry do text.mp3 you can also tab to the next entry\nthe new feature you can is set the rate of the scale from -10 to 10 in the rate entry box but there must be a number, i will add voices as I go. if you have a problem email aheisleycook@gmail.com or notify me at my github. amke sure to send the logs you ahve when you find a error pelse send converter-error-log and converter-conversions-log as well ")
+
     def about(self):
-        mbx.showinfo("About", "\n\n created by austin heisley-cook\ndate 2/1/2018 original year is 2013 this program the idea is credited to joesph polizzotto because I am making the idea becomes a reality.")
+        mbx.showinfo("About", "\n\n created by austin heisley-cook\ndate 2/1/2018 original year is 2013 this program the idea is credited to past boss because I am making the idea becomes a reality.\n I have spent years creating this.")
 
 root =  tk.Tk()
 app = MainApplication()
